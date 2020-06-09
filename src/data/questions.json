@@ -1,0 +1,41 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In Monster Hunter Generations, which of the following monsters are a part of the &quot;Fated Four&quot;?",
+      "correct_answer": "Astalos",
+      "incorrect_answers": ["Gore Magala", "Malfestio", "Arzuros"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In the Half-Life franchise, what is the real name of the &quot;gravity gun&quot;?",
+      "correct_answer": "Zero-Point Energy Field Manipulator",
+      "incorrect_answers": [
+        "Universal Gravity Manipulation Device",
+        "Isaac Newton&#039;s Theory Disprover",
+        "Quantum Energy Displacement Modifier"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "In &quot;Need for Speed III: Hot Pursuit&quot;, what is the name of the fictional car?",
+      "correct_answer": "El Ni&ntilde;o",
+      "incorrect_answers": ["R&aacute;pido", "&Aacute;gil", "La Ni&ntilde;a"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which of these roles in Town of Salem is mafia?",
+      "correct_answer": "Disguiser",
+      "incorrect_answers": ["Escort", "Lookout", "Transporter"]
+    }
+  ]
+}
