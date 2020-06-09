@@ -26,7 +26,7 @@ function App() {
   };
 
   const onStartQuiz = () => {
-    fetch("https://opentdb.com/api.php?amount=3&difficulty=medium&type=multiple")
+    fetch("https://opentdb.com/api.php?amount=4&difficulty=medium&type=multiple")
       .then(res => res.json())
       .then(
         (result) => {
