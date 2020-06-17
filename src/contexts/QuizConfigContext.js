@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import QuizConfigReducer, {QUIZ_CONFIG_DEFAULT} from "../reducers/QuizConfigReducer";
+import QuizConfigReducer, {QUIZ_CONFIG_DEFAULT} from "../reducers/quizConfigReducer";
 
 const QuizConfigContext = createContext();
 
