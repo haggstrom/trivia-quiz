@@ -1,6 +1,6 @@
 # trivia-quiz
 
-A multiple category trivia quiz.
+A responsive multiple category trivia quiz web application built with React.js and Bootstrap.
 
 ## Demo
 
@@ -9,6 +9,8 @@ A multiple category trivia quiz.
 ## Built with
 
 - [React.js](https://reactjs.org/)
+  - React Hooks API (useState, useEffect, useReducer).
+  - React Context API.
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [Trivia API](https://opentdb.com/api_config.php)
 - CI/CD pipeline using [Travis CI](https://travis-ci.org/) and [Github Pages](https://pages.github.com/)

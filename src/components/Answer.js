@@ -6,8 +6,9 @@ const Answer = ({ answer, isSelected, onClick }) => {
   return (
     <Col xs={12}>
       <Button
+        className={isSelected ? "active" : ""}
         style={{ marginTop: "10px" }}
-        variant={isSelected ? "light" : "outline-light"}
+        variant={isSelected ? "outline-light" : "outline-light"}
         size="lg"
         onClick={onClick}
         block

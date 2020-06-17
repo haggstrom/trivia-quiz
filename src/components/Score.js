@@ -11,7 +11,8 @@ const Score = ({ userAnswers, questions, onRestart }) => {
   }, 0);
 
   return (
-    <div className="fixed-width">
+    // <div className="fixed-width">
+    <div>
       <TextPanel
         header="Resultat"
         text={`${correctAnswers} av ${numQuestions} rätt`}

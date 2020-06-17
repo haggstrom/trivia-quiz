@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
 
-const NextButton = ({ text, onClick, disabled }) => {
+const NextButton = ({ text, onClick, disabled, showLoaderOnClick }) => {
+  const [showLoader, setShowLoader] = useState(false);
+
+  const onButtonClick = () => {
+    if (showLoaderOnClick || false) {
+      setShowLoader(true);
+    }
+    onClick();
+  };
+
   return (
     <Button
       style={{ marginTop: "10px" }}
-      variant="info"
+      variant="light"
       size="lg"
-      onClick={onClick}
+      onClick={onButtonClick}
       block
       disabled={disabled || false}
     >
-      {text}
+      {showLoader ? (
+        <div className="text-center">
+          <Spinner animation="border" />
+        </div>
+      ) : (
+        text
+      )}
     </Button>
   );
 };

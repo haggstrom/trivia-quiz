@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+
+.fixed-width {
+  width: 100% !important;
+  min-width: 100% !important;
+  padding: 1em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.my-border {
+  border: 2px solid white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.author-text {
+  text-align: right;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .fixed-width {
+    /* color: red; */
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+  .main-row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  .jumbotron {
+    padding: 2rem 1rem !important;
+  }
+
+  .container {
+    width: 90% !important;
+    min-width: 90% !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .fixed-width {
+    /* color: green; */
+    width: 650px;
+    min-width: 650px;
+    width: 80% !important;
+    min-width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .fixed-width {
+    /* color: red; */
+    width: 650px;
+    min-width: 650px;
+    width: 80% !important;
+    min-width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up)  */
+@media (min-width: 1200px) {
+  .fixed-width {
+    /* color: green; */
+    width: 50% !important;
+    min-width: 50% !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

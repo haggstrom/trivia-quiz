@@ -16,27 +16,6 @@ const Answers = ({ answers, selectedAnswer, onAnswerClick }) => {
           />
         );
       })}
-
-      {/* <Answer
-        answer={question.a}
-        isSelected={selectedAnswer === "a"}
-        onClick={() => onAnswerClick("a")}
-      />
-      <Answer
-        answer={question.b}
-        isSelected={selectedAnswer === "b"}
-        onClick={() => onAnswerClick("b")}
-      />
-      <Answer
-        answer={question.c}
-        isSelected={selectedAnswer === "c"}
-        onClick={() => onAnswerClick("c")}
-      />
-      <Answer
-        answer={question.d}
-        isSelected={selectedAnswer === "d"}
-        onClick={() => onAnswerClick("d")}
-      /> */}
     </Row>
   );
 };

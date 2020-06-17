@@ -1,5 +1,22 @@
 import ReactHtmlParser from "react-html-parser";
-const questionUtil = {
+
+const triviaApiUtil = {
+  buildUrl: (quizConfig) => {
+    const categoryParameter =
+      quizConfig.category === "any" ? "" : "&category=" + quizConfig.category;
+
+    const difficultyParameter =
+      quizConfig.difficulty === "any"
+        ? ""
+        : "&difficulty=" + quizConfig.difficulty;
+
+    return (
+      `https://opentdb.com/api.php?amount=${quizConfig.numQuestions}&type=multiple` +
+      categoryParameter +
+      difficultyParameter
+    );
+  },
+
   parseQuestions: (questions) => {
     const rawQuestions = questions["results"];
 
@@ -15,6 +32,7 @@ const questionUtil = {
     const questionList = rawQuestions.map((rawQuestion) => {
       let question = ReactHtmlParser(rawQuestion.question)[0];
       let category = ReactHtmlParser(rawQuestion.category)[0];
+      let difficulty = ReactHtmlParser(rawQuestion.difficulty)[0];
       let correct_answer = ReactHtmlParser(rawQuestion.correct_answer)[0];
       let incorrect_answers = rawQuestion.incorrect_answers.map((ic_answer) => {
         return ReactHtmlParser(ic_answer)[0];
@@ -23,13 +41,13 @@ const questionUtil = {
       return {
         question: question,
         category: category,
+        difficulty: difficulty,
         correct_answer: correct_answer,
         randomAnswers: randomAnswers,
-        
       };
     });
     return questionList;
   },
 };
 
-export default questionUtil;
+export default triviaApiUtil;

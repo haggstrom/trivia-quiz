@@ -6,6 +6,7 @@ html {
 #root {
   height: 100%;
   width: 100%;
+  background-color: #07689f;
 }
 
 body {
@@ -17,49 +18,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   width: 100%;
+  background-color: #07689f !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-/* 
-Extra small devices (portrait phones, less than 576px) 
-No media query since this is the default in Bootstrap because it is "mobile first"
-*/
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  .fixed-width {
-    /* color: red; */
-    width: 500px;
-    min-width: 500px;
-  }
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .fixed-width {
-    /* color: green; */
-    width: 650px;
-    min-width: 650px;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .fixed-width {
-    /* color: red; */
-    width: 750px;
-    min-width: 750px;
-  }
-}
-/* Extra large devices (large desktops, 1200px and up)  */
-@media (min-width: 1200px) {
-  .fixed-width {
-    /* color: green; */
-    width: 850px;
-    min-width: 850px;
-  }
 }

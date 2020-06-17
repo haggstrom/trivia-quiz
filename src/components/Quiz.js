@@ -1,49 +1,31 @@
 import React, { useState } from "react";
-import Answers from "./Answers";
-import NextButton from "./NextButton";
-import TextPanel from "./TextPanel";
+import Questions from "./Questions";
+import Score from "./Score";
 
-const Quiz = ({ userAnswers, setUserAnswers, questions, onQuizDone }) => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [currentAnswer, setCurrentAnswer] = useState("");
+const Quiz = ({ questions, onRestart }) => {
+  const [showQuestions, setShowQuestions] = useState(true);
+  const [userAnswers, setUserAnswers] = useState([]);
 
-  const nextQuestion = () => {
-    if (currentAnswer !== "") {
-      setUserAnswers([...userAnswers, currentAnswer]);
-      setCurrentAnswer("");
-
-      var quizDone = currentQuestion + 1 === questions.length;
-      setCurrentQuestion(currentQuestion + 1);
-
-      if (quizDone) {
-        onQuizDone();
-      }
-    }
-  };
-
-  const onAnswerClick = (answer) => {
-    setCurrentAnswer(answer);
+  const onQuizDone = (userAnswers) => {
+    setUserAnswers(userAnswers);
+    setShowQuestions(false);
   };
 
   return (
-    <div className="fixed-width">
-      <TextPanel
-        header={`Fråga (${currentQuestion + 1} av ${questions.length})`}
-        text={questions[currentQuestion].question}
-        metaText={questions[currentQuestion].category}
-      />
-      <Answers
-        selectedAnswer={currentAnswer}
-        onAnswerClick={onAnswerClick}
-        // key={questions[currentQuestion].id}
-        answers={questions[currentQuestion].randomAnswers}
-      />
-      <NextButton
-        text="Nästa fråga"
-        onClick={nextQuestion}
-        disabled={currentAnswer === ""}
-      />
-    </div>
+    <>
+      {showQuestions ? (
+        <Questions
+          questions={questions}
+          onQuizDone={onQuizDone}
+        />
+      ) : (
+        <Score
+          userAnswers={userAnswers}
+          questions={questions}
+          onRestart={onRestart}
+        />
+      )}
+    </>
   );
 };
 
