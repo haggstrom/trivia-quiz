@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import NextButton from "./NextButton";
 import TextPanel from "./TextPanel";
 import AnsweredQuestion from "./AnsweredQuestion";
 import ListGroup from "react-bootstrap/ListGroup";
+import QuizContext from "../contexts/QuizContext";
 
-const Score = ({ userAnswers, questions, onRestart }) => {
+const Score = ({ onRestart }) => {
+  const { quizData } = useContext(QuizContext);
+  const { questions, userAnswers } = quizData;
   const numQuestions = questions.length;
   const correctAnswers = userAnswers.reduce((sum, answer, index) => {
     return answer === questions[index].correct_answer ? sum + 1 : sum;
   }, 0);
 
   return (
-    // <div className="fixed-width">
     <div>
       <TextPanel
         header="Resultat"

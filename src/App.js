@@ -4,11 +4,14 @@ import "./css/bootstrap-fresca-theme.min.css";
 
 import TriviaQuiz from "./components/TriviaQuiz";
 import { QuizConfigContextProvider } from "./contexts/QuizConfigContext";
+import { QuizContextProvider } from "./contexts/QuizContext";
 
 function App() {
   return (
     <QuizConfigContextProvider>
-      <TriviaQuiz />
+      <QuizContextProvider>
+        <TriviaQuiz />
+      </QuizContextProvider>
     </QuizConfigContextProvider>
   );
 }

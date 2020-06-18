@@ -6,34 +6,46 @@ import Row from "react-bootstrap/Row";
 import triviaApiUtil from "../util/triviaApiUtil";
 import StartScreen from "./StartScreen/StartScreen";
 import QuizConfigContext from "../contexts/QuizConfigContext";
-import useTriviaApi from "../hooks/useTriviaApi";
+import QuizContext from "../contexts/QuizContext";
 
 const TriviaQuiz = () => {
-  const { quizConfig, dispatch } = useContext(QuizConfigContext);
+  const { quizConfig, configDispatch } = useContext(QuizConfigContext);
+  const { dispatch } = useContext(QuizContext);
+  const [isLoading, setIsLoading] = useState(true);
   const [showStartScreen, setShowStartScreen] = useState(true);
-  const [url, setUrl] = useState("");
-  const { questions, isLoading } = useTriviaApi(url);
 
   const onRestart = () => {
-    dispatch({ type: "RESET_CONFIG" });
+    configDispatch({ type: "RESET_CONFIG" });
     setShowStartScreen(true);
   };
 
   const onStartQuiz = () => {
-    setUrl(triviaApiUtil.buildUrl(quizConfig));
-    setShowStartScreen(false);
+    let url = triviaApiUtil.buildUrl(quizConfig);
+    setIsLoading(true);
+    fetch(url)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          let questions = triviaApiUtil.parseQuestions(result);
+          dispatch({ type: "SET_QUESTIONS", questions: questions });
+          setIsLoading(false);
+          setShowStartScreen(false);
+        },
+        (error) => {
+          console.log("error" + error);
+        }
+      );
   };
 
   return (
     <Container className="h-100 bg-primary">
       <Row className="align-items-center h-100">
-        {/* <div className="mx-auto"> */}
         <div className="fixed-width">
           <Jumbotron className="bg-primary my-border">
             {showStartScreen || isLoading ? (
               <StartScreen onStartQuiz={onStartQuiz} />
             ) : (
-              <Quiz questions={questions} onRestart={onRestart} />
+              <Quiz onRestart={onRestart} />
             )}
           </Jumbotron>
         </div>

@@ -9,7 +9,7 @@ const QuizConfigContextProvider = (props) => {
 
   return (
     <QuizConfigContext.Provider
-      value={{ quizConfig: quizConfig, dispatch: dispatch }}
+      value={{ quizConfig: quizConfig, configDispatch: dispatch }}
     >
       {props.children}
     </QuizConfigContext.Provider>

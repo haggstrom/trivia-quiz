@@ -1,5 +1,4 @@
-### feature-v3
-
+### feature-v4
 - Använd demodata om anrop failar
 - Visa info om anrop demodata failar.
 - Info TriviAPI inte kan anropas.

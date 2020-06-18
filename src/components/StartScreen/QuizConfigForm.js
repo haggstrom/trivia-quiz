@@ -4,7 +4,7 @@ import QuizConfigContext from "../../contexts/QuizConfigContext";
 import FormSelect from "./FormSelect";
 
 const QuizConfigForm = () => {
-  const { quizConfig, dispatch } = useContext(QuizConfigContext);
+  const { quizConfig, configDispatch } = useContext(QuizConfigContext);
 
   const difficulties = [
     { value: "any", text: "Any Difficulty" },
@@ -54,15 +54,15 @@ const QuizConfigForm = () => {
   ];
 
   const onNumQuestionsChanged = (e) => {
-    dispatch({ type: "SET_NUMBER_OF_QUESTIONS", numQuestions: e.target.value });
+    configDispatch({ type: "SET_NUMBER_OF_QUESTIONS", numQuestions: e.target.value });
   };
 
   const onCategoryChange = (e) => {
-    dispatch({ type: "SET_CATEGORY", category: e.target.value });
+    configDispatch({ type: "SET_CATEGORY", category: e.target.value });
   };
 
   const onDifficultyChange = (e) => {
-    dispatch({ type: "SET_DIFFICULTY", difficulty: e.target.value });
+    configDispatch({ type: "SET_DIFFICULTY", difficulty: e.target.value });
   };
 
   return (
